@@ -1,224 +1,173 @@
-# README - Convertidor JSON a Excel
+# JSON to Excel Converter
 
-## Descripción del proyecto
+Aplicación de escritorio hecha en Python para convertir archivos JSON a Excel de forma rápida y sencilla mediante una interfaz gráfica.
 
-Este proyecto es una aplicación de escritorio desarrollada en Python que permite convertir archivos JSON en archivos Excel de manera automática mediante una interfaz gráfica moderna e intuitiva.
+El programa permite seleccionar cualquier archivo `.json`, procesarlo aunque tenga estructuras anidadas y generar automáticamente un archivo `.xlsx` listo para usar en Excel.
 
-La aplicación selecciona cualquier archivo `.json`, procesa su estructura aunque esté anidada, aplana toda la información y genera un archivo Excel listo para utilizarse en análisis, reportes o manipulación de datos.
+El archivo generado se guarda automáticamente en la carpeta de Descargas con el nombre:
 
-El archivo generado se guarda automáticamente en la carpeta de Descargas del sistema con el nombre:
-
+```text id="z9t0uk"
 DATOS_EXTRAIDOS.xlsx
-
-La interfaz está desarrollada con Tkinter y funciona en Windows, Linux y macOS.
+```
 
 ---
 
-# Características principales
+# Características
 
-✔ Conversión automática de JSON a Excel  
-✔ Soporte para JSON anidados  
-✔ Soporte para listas y objetos complejos  
-✔ Interfaz gráfica moderna  
-✔ Guardado automático en Descargas  
-✔ Botón para abrir el archivo generado  
-✔ Botón para abrir la carpeta del archivo  
-✔ Compatible con múltiples sistemas operativos  
+* Conversión automática de JSON a Excel
+* Soporte para JSON anidados
+* Interfaz gráfica simple y moderna
+* Guardado automático en Descargas
+* Compatible con Windows, Linux y macOS
+* Botones para abrir el archivo o la carpeta directamente
 
 ---
 
 # Librerías utilizadas
 
-## Librerías principales del proyecto
+## Tkinter
 
-### Tkinter
-
-```python
+```python id="4dxyc8"
 import tkinter as tk
 from tkinter import filedialog
 ```
 
-Se utiliza para crear toda la interfaz gráfica de la aplicación, incluyendo:
+Se utiliza para toda la interfaz gráfica de la aplicación.
 
-- Ventana principal
-- Botones
-- Mensajes dinámicos
-- Selector de archivos
-- Diseño visual
+Incluye:
 
-Tkinter viene incluido por defecto en Python.
+* Ventana principal
+* Botones
+* Selector de archivos
+* Mensajes dinámicos
+* Diseño visual
+
+Tkinter ya viene incluido con Python.
 
 ---
 
-### Pandas
+## Pandas
 
-```python
+```python id="3w6g0r"
 import pandas as pd
 ```
 
-Es la librería encargada de manejar y transformar los datos.
-
-Funciones principales:
-
-- Crear DataFrames
-- Organizar la información del JSON
-- Exportar los datos a Excel
+Se utiliza para organizar la información y convertir los datos del JSON en tablas Excel.
 
 Instalación:
 
-```bash
+```bash id="d9z3wk"
 pip install pandas
 ```
 
 ---
 
-### OpenPyXL
+## OpenPyXL
 
-Aunque no se importa directamente, Pandas utiliza esta librería para generar archivos Excel.
-
-Motor utilizado:
-
-```python
-engine='openpyxl'
-```
+Pandas utiliza esta librería para generar el archivo `.xlsx`.
 
 Instalación:
 
-```bash
+```bash id="ok6mgh"
 pip install openpyxl
 ```
 
 ---
 
-### JSON
+## JSON
 
-```python
+```python id="zyw7am"
 import json
 ```
 
 Permite leer y procesar archivos JSON.
 
-Funciones utilizadas:
-
-- Cargar datos JSON
-- Interpretar estructuras anidadas
-- Convertir contenido a objetos Python
-
-Esta librería viene integrada en Python.
-
 ---
 
-### Pathlib
+## Pathlib
 
-```python
+```python id="8r7v4g"
 from pathlib import Path
 ```
 
-Se utiliza para detectar automáticamente la carpeta Descargas del usuario en cualquier sistema operativo.
-
-Ejemplo:
-
-```python
-Path.home() / "Downloads"
-```
+Se utiliza para detectar automáticamente la carpeta Descargas del usuario.
 
 ---
 
-### OS
+## OS
 
-```python
+```python id="9ocq54"
 import os
 ```
 
-Permite trabajar con rutas, archivos y directorios del sistema operativo.
-
-Funciones utilizadas:
-
-- Crear rutas
-- Obtener directorios
-- Abrir carpetas y archivos
+Permite trabajar con rutas y archivos del sistema.
 
 ---
 
-### Subprocess
+## Subprocess
 
-```python
+```python id="6wh86f"
 import subprocess
 ```
 
-Se utiliza para abrir archivos y carpetas en Linux y macOS mediante comandos del sistema.
+Se utiliza para abrir carpetas y archivos en Linux y macOS.
 
 ---
 
-### Platform
+## Platform
 
-```python
+```python id="lrn6nm"
 import platform
 ```
 
-Detecta el sistema operativo actual para ejecutar correctamente la apertura de archivos y carpetas.
-
-Sistemas soportados:
-
-- Windows
-- Linux
-- macOS
+Detecta el sistema operativo actual para ejecutar correctamente algunas funciones.
 
 ---
 
 # Instalación
 
-## 1. Clonar el repositorio
+Clona el repositorio:
 
-```bash
-git clone https://github.com/usuario/repositorio.git
+```bash id="ewjxwb"
+git clone https://github.com/tuusuario/tu-repositorio.git
 ```
 
----
+Entra a la carpeta del proyecto:
 
-## 2. Entrar al proyecto
-
-```bash
-cd repositorio
+```bash id="1wdx0w"
+cd tu-repositorio
 ```
 
----
+Instala las dependencias:
 
-## 3. Instalar dependencias
-
-```bash
+```bash id="11h1av"
 pip install pandas openpyxl
 ```
 
 ---
 
-# Ejecución
+# Ejecutar el proyecto
 
-Ejecutar el archivo principal:
-
-```bash
+```bash id="a9xwq0"
 python main.py
 ```
 
 ---
 
-# Funcionamiento
+# Cómo funciona
 
-La aplicación realiza el siguiente proceso:
-
-1. El usuario selecciona un archivo JSON.
-2. El sistema lee el contenido.
-3. El JSON es transformado en una estructura plana.
-4. Los datos se convierten en una tabla de Pandas.
-5. Se genera automáticamente un archivo Excel.
-6. El archivo se guarda en Descargas.
-7. La interfaz muestra opciones para abrir el archivo o la carpeta.
+1. Seleccionas un archivo JSON.
+2. El programa procesa toda la información.
+3. El JSON se aplana automáticamente.
+4. Se genera un archivo Excel.
+5. El archivo se guarda en Descargas.
+6. Puedes abrir el archivo o la carpeta desde la misma aplicación.
 
 ---
 
 # Estructura del proyecto
 
-```text
+```text id="7p3wja"
 📁 Proyecto
 │
 ├── main.py
@@ -228,14 +177,14 @@ La aplicación realiza el siguiente proceso:
 
 ---
 
-# Ejemplo de uso
+# Ejemplo
 
-## JSON de entrada
+## JSON
 
-```json
+```json id="ol7v36"
 {
   "usuario": {
-    "nombre": "Juan Perez",
+    "nombre": "Cristian",
     "edad": 20
   }
 }
@@ -244,21 +193,21 @@ La aplicación realiza el siguiente proceso:
 ## Resultado en Excel
 
 | usuario_nombre | usuario_edad |
-|----------------|--------------|
-| Juan Perez     | 20           |
+| -------------- | ------------ |
+| Cristian       | 20           |
 
 ---
 
 # Compatibilidad
 
-El proyecto funciona correctamente en:
+Funciona en:
 
-- Windows
-- Linux
-- macOS
+* Windows
+* Linux
+* macOS
 
 ---
 
 # Autor
 
-Proyecto desarrollado en Python utilizando Tkinter y Pandas para automatizar la conversión de archivos JSON a Excel mediante una interfaz gráfica moderna.
+Proyecto creado por Cristian Josue. La idea principal fue hacer una herramienta simple y rápida para convertir archivos JSON a Excel sin complicarse con comandos o procesos raros.
